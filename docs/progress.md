@@ -110,3 +110,39 @@ python -m pip install Pillow
 - Build login API
 - Configure JWT authentication
 - Test authentication endpoints
+
+
+## Sprint 5: User Registration & JWT Authentication
+
+Status: In Progress
+
+Completed:
+- Installed Simple JWT
+- Configured JWT authentication
+- Created registration serializer
+- Created registration API endpoint
+- Connected accounts API URLs
+
+---
+
+## Sprint 5: Authentication System
+**Status:** ✅ Completed
+
+### Completed Tasks
+- Installed Django Simple JWT
+- Configured JWT authentication
+- Created user registration API
+- Created login endpoint
+- Created token refresh endpoint
+- Added protected profile endpoint
+- Tested authenticated requests
+
+### Authentication Flow
+
+User registers → Database → Login → JWT Tokens → Protected APIs
+
+### Next Sprint
+
+- Create Income model
+- Create Income API
+- Connect income records to authenticated users
