@@ -171,3 +171,22 @@ DELETE /api/income/<id>/
 
 ### Next Sprint
 - Build Expense Management module
+
+## Sprint 8: Dashboard & Budget Engine
+Status: ✅ Completed
+
+Features Added:
+- Created dashboard application
+- Added financial summary API
+- Calculated total income
+- Calculated total expenses
+- Calculated remaining balance
+- Added income and expense record counts
+- Secured dashboard endpoint with JWT authentication
+- Verified user data isolation
+
+Endpoint:
+GET /api/dashboard/summary/
+
+Next Sprint:
+Savings Goals Management

@@ -36,6 +36,12 @@ urlpatterns = [
         include("income.urls")
     ),
 
+    path("api/expenses/", include("expenses.urls")),
+
+    path(
+            "api/dashboard/",
+            include("dashboard.urls")),
+
 
     path(
         "api/token/",
