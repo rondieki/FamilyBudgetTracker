@@ -190,3 +190,48 @@ GET /api/dashboard/summary/
 
 Next Sprint:
 Savings Goals Management
+
+## Sprint 9: Savings Goals Management
+**Status:** ✅ Completed
+
+### Features Added
+- Created Savings Goals module.
+- Added SavingsGoal database model.
+- Added savings CRUD API.
+- Secured endpoints using JWT authentication.
+- Implemented user-specific savings goals.
+- Added automatic progress calculation.
+- Added savings goal status tracking.
+
+### API Endpoint
+
+/api/savings/
+
+### Calculations
+
+Progress:
+(current_amount / target_amount) × 100
+
+Progress is capped at 100%.
+
+### Goal Status
+
+0-24%:
+Starting
+
+25-74%:
+In Progress
+
+75-99%:
+Almost There
+
+100%:
+Completed
+
+### Security Testing
+
+Verified users can only access their own savings goals.
+
+### Next Sprint
+
+Sprint 10 - Advanced Reports & Analytics
