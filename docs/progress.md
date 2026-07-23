@@ -234,4 +234,28 @@ Verified users can only access their own savings goals.
 
 ### Next Sprint
 
-Sprint 10 - Advanced Reports & Analytics
+## Sprint 10: Advanced Reports & Analytics
+Status: ✅ Completed
+
+Features Added:
+
+- Created Reports API.
+- Added financial summary calculations.
+- Added total income analysis.
+- Added total expense analysis.
+- Added savings analysis.
+- Added expense category breakdown.
+- Added saving rate calculation.
+- Added expense ratio calculation.
+- Added financial health score.
+
+Reports Endpoint:
+
+GET /api/reports/summary/
+
+Analytics Included:
+
+- Income vs expenses
+- Savings performance
+- Spending categories
+- Financial health classification

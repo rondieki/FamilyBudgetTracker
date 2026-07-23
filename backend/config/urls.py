@@ -46,6 +46,10 @@ urlpatterns = [
     "api/savings/",
     include("savings.urls")),
 
+    path(
+    "api/reports/",
+    include("reports.urls")),
+
 
     path(
         "api/token/",
