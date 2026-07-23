@@ -318,4 +318,39 @@ Verified that:
 
 ### Next Sprint
 
-Sprint 12 - Dashboard API Integration & Frontend Connection
+## Sprint 12: Dashboard API Integration
+Status: ✅ In Progress
+
+### Completed
+
+- Created dashboard application.
+- Implemented dashboard API endpoint.
+- Added JWT authentication.
+- Integrated financial summary data.
+- Added recent expenses retrieval.
+- Added savings goal progress information.
+
+Endpoint:
+
+GET /api/dashboard/
+
+Purpose:
+
+Provides a single API endpoint containing the information required by the user dashboard.
+
+## Sprint 12 Part 2: Service Layer Refactor
+Status: ✅ Completed
+
+### Completed
+
+- Created reports service layer.
+- Moved financial calculations from views.py to services.py.
+- Updated FinancialSummaryView to use service functions.
+- Updated Dashboard API to use shared financial calculation logic.
+- Removed view-to-view dependency.
+
+### Benefits
+
+- Improved code maintainability.
+- Reduced duplication.
+- Created reusable business logic layer.

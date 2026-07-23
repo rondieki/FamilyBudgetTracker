@@ -1,46 +1,100 @@
-from django.db.models import Sum
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
+from django.http import request
 from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from reports.services import get_financial_summary
 
-from income.models import Income
 from expenses.models import Expense
+from savings.models import SavingsGoal
+from budgets.models import Budget
 
 
-class DashboardSummaryView(APIView):
+class DashboardView(APIView):
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [
+        IsAuthenticated
+    ]
+
 
     def get(self, request):
 
-        total_income = (
-            Income.objects.filter(
-                user=request.user
-            ).aggregate(
-                total=Sum("amount")
-            )["total"] or 0
+        user = request.user
+
+        summary = get_financial_summary(
+            user=user
         )
 
-        total_expenses = (
-            Expense.objects.filter(
-                user=request.user
-            ).aggregate(
-                total=Sum("amount")
-            )["total"] or 0
+
+        # Recent expenses
+
+        recent_expenses = Expense.objects.filter(
+            user=user
+        ).order_by(
+            "-date"
+        )[:5]
+
+
+        expense_data = []
+
+        for expense in recent_expenses:
+
+            expense_data.append({
+
+                "category": expense.get_category_display(),
+
+                "amount": expense.amount,
+
+                "date": expense.date,
+
+                "description": expense.description
+
+            })
+
+
+        # Savings goals
+
+        savings_goals = SavingsGoal.objects.filter(
+            user=user
         )
 
-        balance = total_income - total_expenses
 
-        data = {
-            "total_income": total_income,
-            "total_expenses": total_expenses,
-            "balance": balance,
-            "income_records": Income.objects.filter(
-                user=request.user
-            ).count(),
-            "expense_records": Expense.objects.filter(
-                user=request.user
-            ).count(),
-        }
+        savings_data = []
 
-        return Response(data)
+        for goal in savings_goals:
+
+            progress = 0
+
+            if goal.target_amount > 0:
+
+                progress = (
+                    goal.current_amount /
+                    goal.target_amount
+                ) * 100
+
+
+            savings_data.append({
+
+                "name": goal.name,
+
+                "target": goal.target_amount,
+
+                "saved": goal.current_amount,
+
+                "progress": round(progress, 2)
+
+            })
+
+
+        return Response({
+
+            "message": "Dashboard data retrieved successfully",
+
+            "user": request.user.username,
+
+            "financial_summary": summary,
+
+            "recent_expenses": expense_data,
+
+            "savings_goals": savings_data
+
+        })
