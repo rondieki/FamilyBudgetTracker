@@ -43,12 +43,19 @@ urlpatterns = [
             include("dashboard.urls")),
 
     path(
-    "api/savings/",
-    include("savings.urls")),
+        "api/savings/",
+        include("savings.urls")
+    ),
 
     path(
-    "api/reports/",
-    include("reports.urls")),
+        "api/reports/",
+        include("reports.urls")
+    ),
+
+    path(
+        "api/budgets/",
+        include("budgets.urls")
+    ),
 
 
     path(

@@ -259,3 +259,63 @@ Analytics Included:
 - Savings performance
 - Spending categories
 - Financial health classification
+
+## Sprint 11: Budget Limits & Smart Alerts
+
+**Status:** ✅ Completed
+
+### Features Added
+
+* Created Budget Management module.
+* Added Budget model for user-defined spending limits.
+* Implemented Budget CRUD API.
+* Added JWT authentication protection.
+* Added user-specific budget filtering.
+* Implemented dynamic budget alerts.
+
+### Budget API Endpoints
+
+Create Budget:
+
+POST `/api/budgets/`
+
+View Budgets:
+
+GET `/api/budgets/`
+
+Update Budget:
+
+PUT `/api/budgets/{id}/`
+
+Delete Budget:
+
+DELETE `/api/budgets/{id}/`
+
+### Smart Budget Alerts
+
+Implemented calculated alerts without storing notifications in the database.
+
+Alert system compares:
+
+Budget Limit vs Actual Expenses
+
+Alert Levels:
+
+* Safe: Spending below 80% of budget.
+* Warning: Spending between 80% and 100% of budget.
+* Exceeded: Spending above the budget limit.
+
+Alert Endpoint:
+
+GET `/api/budgets/alerts/`
+
+### Security Testing
+
+Verified that:
+
+* Users can only access their own budgets.
+* Budget alerts are generated based on the authenticated user's expenses.
+
+### Next Sprint
+
+Sprint 12 - Dashboard API Integration & Frontend Connection
