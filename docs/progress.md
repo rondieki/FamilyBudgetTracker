@@ -146,3 +146,28 @@ User registers → Database → Login → JWT Tokens → Protected APIs
 - Create Income model
 - Create Income API
 - Connect income records to authenticated users
+
+---
+
+## Sprint 6: Income Management
+**Status:** ✅ Completed
+
+### Completed Tasks
+- Created Income model
+- Linked income records to users
+- Added income source choices
+- Created Income serializer
+- Built Income CRUD API
+- Added JWT protected income endpoints
+- Tested API using Postman
+
+### API Endpoints
+
+POST   /api/income/
+GET    /api/income/
+GET    /api/income/<id>/
+PUT    /api/income/<id>/
+DELETE /api/income/<id>/
+
+### Next Sprint
+- Build Expense Management module

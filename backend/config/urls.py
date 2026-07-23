@@ -32,6 +32,12 @@ urlpatterns = [
     ),
 
     path(
+        "api/income/", 
+        include("income.urls")
+    ),
+
+
+    path(
         "api/token/",
         TokenObtainPairView.as_view(),
         name="token_obtain_pair"
